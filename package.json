@@ -24,14 +24,21 @@
   },
   "packageManager": "pnpm@10.33.2",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "pnpm run build:apps",
+    "build:package": "tsc -p tsconfig.json",
+    "build:apps": "pnpm run build:package && pnpm --filter 'vinext-*' build",
     "changeset": "changeset",
-    "check": "pnpm run typecheck && pnpm test",
-    "release": "pnpm run build && changeset publish",
-    "test": "pnpm run build && node --test",
+    "check": "pnpm run typecheck && pnpm test && pnpm run build:apps",
+    "dev": "pnpm run build:package && pnpm --filter 'vinext-*' --parallel dev",
+    "dev:host": "pnpm run build:package && pnpm --filter vinext-host dev",
+    "dev:island": "pnpm --filter vinext-island dev",
+    "dev:remote": "pnpm --filter vinext-remote dev",
+    "preview": "pnpm run build:apps && pnpm --filter 'vinext-*' --parallel preview",
+    "release": "pnpm run build:package && changeset publish",
+    "test": "pnpm run build:package && node --test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "version": "changeset version && pnpm install --lockfile-only --ignore-scripts",
-    "prepack": "pnpm run build"
+    "prepack": "pnpm run build:package"
   },
   "publishConfig": {
     "access": "public",
@@ -45,6 +52,12 @@
     "url": "https://github.com/module-federation/vinext/issues"
   },
   "homepage": "https://github.com/module-federation/vinext#readme",
+  "dependencies": {
+    "@module-federation/vite": "1.20.1"
+  },
+  "peerDependencies": {
+    "vinext": ">=1.0.0-beta.3"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "typescript": "^7.0.2"
