@@ -1,0 +1,51 @@
+{
+  "name": "@module-federation/vinext",
+  "version": "0.0.0",
+  "description": "Module Federation integration for vinext",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "changeset": "changeset",
+    "check": "npm run typecheck && npm test",
+    "release": "npm run build && changeset publish",
+    "test": "npm run build && node --test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "version": "changeset version && npm install --package-lock-only --ignore-scripts",
+    "prepack": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/module-federation/vinext.git"
+  },
+  "bugs": {
+    "url": "https://github.com/module-federation/vinext/issues"
+  },
+  "homepage": "https://github.com/module-federation/vinext#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "typescript": "^7.0.2"
+  }
+}
