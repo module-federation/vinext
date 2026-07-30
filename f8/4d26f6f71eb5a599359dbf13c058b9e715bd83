@@ -1,0 +1,41 @@
+.changeset/README.md
+  s_9c2ced22e4d19a::t_057f25a2d33c98 1-4
+.changeset/config.json
+  s_9c2ced22e4d19a::t_22da0ea52e99f6 1-11
+.github/workflows/ci.yml
+  s_9c2ced22e4d19a::t_a9604da35c9a59 1-40
+.github/workflows/release.yml
+  s_9c2ced22e4d19a::t_3d63ad9b7d061a 1-102
+.gitignore
+  s_9c2ced22e4d19a::t_484e412742dc0c 1-5
+LICENSE
+  s_9c2ced22e4d19a::t_91d4f8d2593ec6 1-21
+README.md
+  s_9c2ced22e4d19a::t_ae755f5c2d9580 1-26
+docs/releasing.md
+  s_9c2ced22e4d19a::t_fbf7fdce7a727b 1-40
+src/index.ts
+  s_9c2ced22e4d19a::t_1cc8a28f42d75c 1-4
+test/package.test.js
+  s_9c2ced22e4d19a::t_405cf575a8e406 1-8
+tsconfig.json
+  s_9c2ced22e4d19a::t_10374ed65c97c1 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "f84d26f6f71eb5a599359dbf13c058b9e715bd83",
+  "prompts": {},
+  "sessions": {
+    "s_9c2ced22e4d19a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb0df-c4d4-77a2-ba47-4565c35a4c66",
+        "model": "unknown"
+      },
+      "human_author": "zhanghang.heal <zhanghang.heal@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
