@@ -4,7 +4,7 @@ Every pull request that should produce a new package version must include a
 changeset:
 
 ```sh
-npm run changeset
+pnpm run changeset
 ```
 
 Select the version change, write a short user-facing summary, and commit the
@@ -22,7 +22,7 @@ Preview versions use the npm `preview` tag. The latest preview can also be
 installed with:
 
 ```sh
-npm install @module-federation/vinext@preview
+pnpm add @module-federation/vinext@preview
 ```
 
 Running the preview workflow does not change the branch or the future stable

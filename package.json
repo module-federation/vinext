@@ -22,15 +22,16 @@
   "engines": {
     "node": ">=22.22.2"
   },
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "changeset": "changeset",
-    "check": "npm run typecheck && npm test",
-    "release": "npm run build && changeset publish",
-    "test": "npm run build && node --test",
+    "check": "pnpm run typecheck && pnpm test",
+    "release": "pnpm run build && changeset publish",
+    "test": "pnpm run build && node --test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "version": "changeset version && npm install --package-lock-only --ignore-scripts",
-    "prepack": "npm run build"
+    "version": "changeset version && pnpm install --lockfile-only --ignore-scripts",
+    "prepack": "pnpm run build"
   },
   "publishConfig": {
     "access": "public",

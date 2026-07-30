@@ -25,6 +25,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10.33.2"
+
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
@@ -36,16 +41,16 @@ jobs:
         run: npm install --global npm@12.0.2
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Run checks
-        run: npm run check
+        run: pnpm run check
 
       - name: Create or update release PR
         id: changesets
         uses: changesets/action@v1
         with:
-          version: npm run version
+          version: pnpm run version
           title: "chore: release"
           commit: "chore: release"
         env:
@@ -53,7 +58,7 @@ jobs:
 
       - name: Publish stable version
         if: steps.changesets.outputs.hasChangesets == 'false'
-        run: npm run release
+        run: pnpm run release
 
   preview:
     name: Publish preview
@@ -68,6 +73,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10.33.2"
+
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
@@ -79,24 +89,24 @@ jobs:
         run: npm install --global npm@12.0.2
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Run checks
-        run: npm run check
+        run: pnpm run check
 
       - name: Create preview version
-        run: npm run changeset -- version --snapshot preview
+        run: pnpm exec changeset version --snapshot preview
 
       - name: Update lockfile
-        run: npm install --package-lock-only --ignore-scripts
+        run: pnpm install --lockfile-only --ignore-scripts
 
       - name: Publish preview version
-        run: npm run changeset -- publish --tag preview --no-git-tag
+        run: pnpm exec changeset publish --tag preview --no-git-tag
 
       - name: Show install command
         run: |
           PACKAGE_VERSION=$(node --print "require('./package.json').version")
           echo "### Preview published" >> "$GITHUB_STEP_SUMMARY"
           echo '```sh' >> "$GITHUB_STEP_SUMMARY"
-          echo "npm install @module-federation/vinext@$PACKAGE_VERSION" >> "$GITHUB_STEP_SUMMARY"
+          echo "pnpm add @module-federation/vinext@$PACKAGE_VERSION" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"

@@ -5,14 +5,14 @@ Module Federation integration for vinext.
 ## Install
 
 ```sh
-npm install @module-federation/vinext
+pnpm add @module-federation/vinext
 ```
 
 ## Development
 
 ```sh
-npm install
-npm run check
+pnpm install
+pnpm run check
 ```
 
 ## Release
