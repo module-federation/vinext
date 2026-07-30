@@ -1,0 +1,25 @@
+.changeset/README.md
+  s_9c2ced22e4d19a::t_ea0d10b31603f3 3
+.github/workflows/ci.yml
+  s_9c2ced22e4d19a::t_75f8b707501240 24-28,36,39,42
+package.json
+  s_9c2ced22e4d19a::t_fc2b4e49f4ab47 25,29-31,33-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e325bfbf0bb11ee414ae236a640cb8ef39bb0a2b",
+  "prompts": {},
+  "sessions": {
+    "s_9c2ced22e4d19a": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb0df-c4d4-77a2-ba47-4565c35a4c66",
+        "model": "unknown"
+      },
+      "human_author": "zhanghang.heal <zhanghang.heal@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
