@@ -36,6 +36,7 @@
     "preview": "pnpm run build:apps && pnpm --filter 'vinext-*' --parallel preview",
     "release": "pnpm run build:package && changeset publish",
     "test": "pnpm run build:package && node --test",
+    "test:e2e": "playwright test --config=playwright.config.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "version": "changeset version && pnpm install --lockfile-only --ignore-scripts",
     "prepack": "pnpm run build:package"
@@ -59,6 +60,7 @@
     "vinext": ">=1.0.0-beta.3"
   },
   "devDependencies": {
+    "@playwright/test": "1.62.0",
     "@changesets/cli": "^2.31.1",
     "typescript": "^7.0.2"
   }

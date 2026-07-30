@@ -4,4 +4,5 @@ dist/
 .next/
 *.tgz
 *.log
+reports/
 .DS_Store
