@@ -2,8 +2,22 @@
   "name": "@module-federation/vinext",
   "version": "0.0.0",
   "description": "Module Federation integration for vinext",
+  "homepage": "https://github.com/module-federation/vinext#readme",
+  "bugs": {
+    "url": "https://github.com/module-federation/vinext/issues"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/module-federation/vinext.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -13,17 +27,14 @@
       "default": "./dist/index.js"
     }
   },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "sideEffects": false,
-  "engines": {
-    "node": ">=22.22.2"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
-  "packageManager": "pnpm@10.33.2",
   "scripts": {
+    "prepare": "husky install",
+    "fmt": "oxfmt *",
+    "fmt.check": "oxfmt --check *",
     "build": "pnpm run build:apps",
     "build:package": "tsc -p tsconfig.json",
     "build:apps": "pnpm run build:package && pnpm --filter 'vinext-*' build",
@@ -41,27 +52,21 @@
     "version": "changeset version && pnpm install --lockfile-only --ignore-scripts",
     "prepack": "pnpm run build:package"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/module-federation/vinext.git"
-  },
-  "bugs": {
-    "url": "https://github.com/module-federation/vinext/issues"
-  },
-  "homepage": "https://github.com/module-federation/vinext#readme",
   "dependencies": {
     "@module-federation/vite": "https://pkg.pr.new/@module-federation/vite@2a192a9"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "@playwright/test": "1.62.0",
+    "husky": "9.1.7",
+    "oxfmt": "0.63.0",
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "vinext": ">=1.0.0-beta.3"
   },
-  "devDependencies": {
-    "@playwright/test": "1.62.0",
-    "@changesets/cli": "^2.31.1",
-    "typescript": "^7.0.2"
-  }
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "packageManager": "pnpm@10.33.2"
 }

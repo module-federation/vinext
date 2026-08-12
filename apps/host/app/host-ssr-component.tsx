@@ -13,9 +13,7 @@ export default function HostSsrComponent() {
       <h2>Host SSR component</h2>
       <p>Rendered by the host before client hydration.</p>
       {hydrated && (
-        <button onClick={() => setCount((current) => current + 1)}>
-          SSR counter: {count}
-        </button>
+        <button onClick={() => setCount((current) => current + 1)}>SSR counter: {count}</button>
       )}
       <p>{hydrated ? "Hydrated" : "SSR"}</p>
     </section>

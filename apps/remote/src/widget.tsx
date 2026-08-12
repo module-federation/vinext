@@ -26,9 +26,7 @@ export default function Widget() {
       <h2>Remote app</h2>
       <p>Shared React 19 component</p>
       {hydrated && (
-        <button onClick={() => setCount((current) => current + 1)}>
-          Remote counter: {count}
-        </button>
+        <button onClick={() => setCount((current) => current + 1)}>Remote counter: {count}</button>
       )}
     </section>
   );

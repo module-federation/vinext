@@ -5,5 +5,5 @@ import Widget from "./widget";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Widget />
-  </StrictMode>,
+  </StrictMode>
 );

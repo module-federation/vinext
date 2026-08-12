@@ -10,10 +10,7 @@ export async function load(): Promise<IslandCounterProps> {
   return { initialCount: 18, renderedAt: new Date().toISOString() };
 }
 
-export default function IslandCounter({
-  initialCount,
-  renderedAt,
-}: IslandCounterProps) {
+export default function IslandCounter({ initialCount, renderedAt }: IslandCounterProps) {
   const [count, setCount] = useState(initialCount);
 
   return (
@@ -31,9 +28,7 @@ export default function IslandCounter({
     >
       <h2>React 18 SSR island</h2>
       <p>Server rendered remotely; hydrated outside the React 19 host tree.</p>
-      <button onClick={() => setCount((current) => current + 1)}>
-        Island counter: {count}
-      </button>
+      <button onClick={() => setCount((current) => current + 1)}>Island counter: {count}</button>
       <small style={{ display: "block", marginTop: 10 }}>SSR: {renderedAt}</small>
     </section>
   );

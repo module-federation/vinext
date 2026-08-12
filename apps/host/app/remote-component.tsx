@@ -8,12 +8,12 @@ type RemoteModule = { default: ComponentType };
 const LazyRemoteWidget = React.lazy(
   () =>
     // @ts-expect-error Module Federation provides this virtual module.
-    import("remote/Widget") as Promise<RemoteModule>,
+    import("remote/Widget") as Promise<RemoteModule>
 );
 const LazyRemoteCounter = React.lazy(
   () =>
     // @ts-expect-error Module Federation provides this virtual module.
-    import("remote/Counter") as Promise<RemoteModule>,
+    import("remote/Counter") as Promise<RemoteModule>
 );
 
 export function RemoteWidget() {

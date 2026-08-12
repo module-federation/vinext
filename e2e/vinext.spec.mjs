@@ -38,9 +38,7 @@ test("host, shared remotes, and island hydrate", async ({ page }) => {
   await expect(remoteCounters).toHaveCount(2);
   await remoteCounters.first().click();
   await remoteCounters.last().click();
-  await expect(
-    page.getByRole("button", { name: /Remote counter: 1/ }),
-  ).toHaveCount(2);
+  await expect(page.getByRole("button", { name: /Remote counter: 1/ })).toHaveCount(2);
 
   await button(page, /Island counter: 18/).click();
   await expect(button(page, /Island counter: 19/)).toBeVisible();

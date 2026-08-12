@@ -10,7 +10,7 @@ export type VinextModuleFederationOptions = ModuleFederationOptions;
  * User-provided Module Federation options always win.
  */
 export function createModuleFederationConfig(
-  options: VinextModuleFederationOptions,
+  options: VinextModuleFederationOptions
 ): ModuleFederationOptions {
   return {
     filename: "remoteEntry.js",

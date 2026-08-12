@@ -5,5 +5,5 @@ import IslandCounter from "./counter";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <IslandCounter initialCount={18} renderedAt="standalone" />
-  </StrictMode>,
+  </StrictMode>
 );

@@ -26,9 +26,7 @@ export default function RemoteCounter() {
       <h2>Remote SSR component</h2>
       <p>Rendered by the remote before client hydration.</p>
       {hydrated && (
-        <button onClick={() => setCount((current) => current + 1)}>
-          Remote counter: {count}
-        </button>
+        <button onClick={() => setCount((current) => current + 1)}>Remote counter: {count}</button>
       )}
       <p>{hydrated ? "Hydrated" : "SSR"}</p>
     </section>
