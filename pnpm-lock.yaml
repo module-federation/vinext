@@ -59,8 +59,8 @@ importers:
         specifier: '5'
         version: 5.9.3
       vinext:
-        specifier: 1.0.0-beta.3
-        version: 1.0.0-beta.3(@vitejs/plugin-react@6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+        specifier: 1.0.0-beta.5
+        version: 1.0.0-beta.5(@vitejs/plugin-react@6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
       vite:
         specifier: 8.1.0
         version: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
@@ -117,6 +117,9 @@ importers:
       typescript:
         specifier: '5'
         version: 5.9.3
+      vinext:
+        specifier: 1.0.0-beta.5
+        version: 1.0.0-beta.5(@vitejs/plugin-react@6.0.0(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
       vite:
         specifier: 8.1.0
         version: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
@@ -1797,8 +1800,8 @@ packages:
     peerDependencies:
       browserslist: '>= 4.21.0'
 
-  vinext@1.0.0-beta.3:
-    resolution: {integrity: sha512-eLxPu8hznrHyCns7U7ZKWRGOycnvgI0pnBEFi3/4j7gQwoZszTJrE5kAe65KchdSF1FdJ34c+qjyZKd/HszOTA==}
+  vinext@1.0.0-beta.4:
+    resolution: {integrity: sha512-2931dmPdXHTCnM4cliTxmJWnXXqoLKgU68qzjeD0lkqvv7cLO3IIvz/azrdBRmAXdhX2e6bmnpuw/9YaIxW7Eg==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -1817,8 +1820,8 @@ packages:
       react-server-dom-webpack:
         optional: true
 
-  vinext@1.0.0-beta.4:
-    resolution: {integrity: sha512-2931dmPdXHTCnM4cliTxmJWnXXqoLKgU68qzjeD0lkqvv7cLO3IIvz/azrdBRmAXdhX2e6bmnpuw/9YaIxW7Eg==}
+  vinext@1.0.0-beta.5:
+    resolution: {integrity: sha512-c0I1UB70/pGwD9y4/iXWrGfz/LnowSbkQpUw+lK9t08tes5WHX7Vl0sZAY4MIzGaVCyvrD4/xZo7HWpMje6SwA==}
     engines: {node: '>=22'}
     hasBin: true
     peerDependencies:
@@ -3520,26 +3523,6 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  vinext@1.0.0-beta.3(@vitejs/plugin-react@6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)):
-    dependencies:
-      '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@vercel/og': 0.8.6
-      '@vinext/types': 1.0.0-beta.2
-      '@vitejs/plugin-react': 6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
-      image-size: 2.0.2
-      ipaddr.js: 2.4.0
-      magic-string: 0.30.21
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-      vite: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
-      vite-plugin-commonjs: 0.10.4
-      web-vitals: 4.2.4
-    optionalDependencies:
-      '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
-      react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
-    transitivePeerDependencies:
-      - next
-
   vinext@1.0.0-beta.4(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)):
     dependencies:
       '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -3556,6 +3539,46 @@ snapshots:
       web-vitals: 4.2.4
     optionalDependencies:
       '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
+      react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
+    transitivePeerDependencies:
+      - next
+
+  vinext@1.0.0-beta.5(@vitejs/plugin-react@6.0.0(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)):
+    dependencies:
+      '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@vercel/og': 0.8.6
+      '@vinext/types': 1.0.0-beta.2
+      '@vitejs/plugin-react': 6.0.0(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+      image-size: 2.0.2
+      ipaddr.js: 2.4.0
+      magic-string: 0.30.21
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      vite: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
+      vite-plugin-commonjs: 0.10.4
+      web-vitals: 4.2.4
+    optionalDependencies:
+      '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+      react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
+    transitivePeerDependencies:
+      - next
+
+  vinext@1.0.0-beta.5(@vitejs/plugin-react@6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)):
+    dependencies:
+      '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@vercel/og': 0.8.6
+      '@vinext/types': 1.0.0-beta.2
+      '@vitejs/plugin-react': 6.0.5(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+      image-size: 2.0.2
+      ipaddr.js: 2.4.0
+      magic-string: 0.30.21
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      vite: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
+      vite-plugin-commonjs: 0.10.4
+      web-vitals: 4.2.4
+    optionalDependencies:
+      '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
       react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
     transitivePeerDependencies:
       - next
