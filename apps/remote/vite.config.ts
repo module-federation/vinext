@@ -1,4 +1,4 @@
-import { federation } from "@module-federation/vite";
+import { federation } from "@module-federation/vinext";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
