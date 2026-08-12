@@ -54,7 +54,7 @@
   },
   "homepage": "https://github.com/module-federation/vinext#readme",
   "dependencies": {
-    "@module-federation/vite": "1.20.1"
+    "@module-federation/vite": "https://pkg.pr.new/@module-federation/vite@2a192a9"
   },
   "peerDependencies": {
     "vinext": ">=1.0.0-beta.3"

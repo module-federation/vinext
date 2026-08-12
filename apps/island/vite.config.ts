@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  builder: {},
   plugins: [
     federation({
       name: "island",
@@ -14,6 +15,14 @@ export default defineConfig({
     }),
     react(),
   ],
+  environments: {
+    ssr: {
+      build: {
+        ssr: "./src/counter.tsx",
+        outDir: "dist/ssr",
+      },
+    },
+  },
   resolve: { dedupe: ["react", "react-dom"] },
   build: { target: "chrome89", modulePreload: false, minify: false },
   server: { cors: true, origin: "http://localhost:4175" },
