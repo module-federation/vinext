@@ -1,9 +1,9 @@
-import Counter from "./counter";
-import HostSsrComponent from "./host-ssr-component";
-import { RemoteCounter, RemoteWidget } from "./remote-component";
-import "./host.css";
+import Counter from './counter';
+import HostSsrComponent from './host-ssr-component';
+import { RemoteCounter, RemoteWidget } from './remote-component';
+import './host.css';
 // @ts-expect-error Module Federation provides this opt-in island component.
-import RemoteIsland from "island/Counter?mf-island";
+import RemoteIsland from 'island/Counter?mf-island';
 
 export default function Home() {
   return (
