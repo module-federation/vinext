@@ -1,7 +1,7 @@
 import {
   federation as viteFederation,
   type ModuleFederationOptions,
-} from '@module-federation/vite';
+} from "@module-federation/vite";
 
 export type VinextModuleFederationOptions = ModuleFederationOptions;
 
@@ -13,15 +13,15 @@ export function createModuleFederationConfig(
   options: VinextModuleFederationOptions
 ): ModuleFederationOptions {
   return {
-    filename: 'remoteEntry.js',
-    hostInitInjectLocation: 'entry',
+    filename: "remoteEntry.js",
+    hostInitInjectLocation: "entry",
     remotes: {},
     exposes: {},
     shared: {
       react: { singleton: true },
-      'react/': { singleton: true },
-      'react-dom': { singleton: true },
-      'react-dom/': { singleton: true },
+      "react/": { singleton: true },
+      "react-dom": { singleton: true },
+      "react-dom/": { singleton: true },
     },
     ...options,
   };
@@ -35,4 +35,4 @@ export function federation(options: VinextModuleFederationOptions): any[] {
 export const withModuleFederation = federation;
 
 export default federation;
-export type { ModuleFederationOptions } from '@module-federation/vite';
+export type { ModuleFederationOptions } from "@module-federation/vite";
