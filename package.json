@@ -24,6 +24,9 @@
   },
   "packageManager": "pnpm@10.33.2",
   "scripts": {
+    "prepare": "husky install",
+    "fmt": "oxfmt src",
+    "fmt.check": "oxfmt --check src",
     "build": "pnpm run build:apps",
     "build:package": "tsc -p tsconfig.json",
     "build:apps": "pnpm run build:package && pnpm --filter 'vinext-*' build",
@@ -62,6 +65,8 @@
   "devDependencies": {
     "@playwright/test": "1.62.0",
     "@changesets/cli": "^2.31.1",
+    "husky": "9.1.7",
+    "oxfmt": "0.61.0",
     "typescript": "^7.0.2"
   }
 }
