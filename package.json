@@ -1,6 +1,6 @@
 {
   "name": "@module-federation/vinext",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Module Federation integration for vinext",
   "homepage": "https://github.com/module-federation/vinext#readme",
   "bugs": {
