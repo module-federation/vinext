@@ -53,7 +53,7 @@
     "prepack": "pnpm run build:package"
   },
   "dependencies": {
-    "@module-federation/vite": "https://pkg.pr.new/@module-federation/vite@2a192a9"
+    "@module-federation/vite": "catalog:"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",

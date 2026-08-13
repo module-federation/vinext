@@ -4,13 +4,19 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@module-federation/vite':
+      specifier: 1.20.7
+      version: 1.20.7
+
 importers:
 
   .:
     dependencies:
       '@module-federation/vite':
-        specifier: https://pkg.pr.new/@module-federation/vite@2a192a9
-        version: https://pkg.pr.new/@module-federation/vite@2a192a9(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
+        specifier: 'catalog:'
+        version: 1.20.7(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
       vinext:
         specifier: '>=1.0.0-beta.3'
         version: 1.0.0-beta.4(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
@@ -81,8 +87,8 @@ importers:
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@module-federation/vite':
-        specifier: https://pkg.pr.new/@module-federation/vite@2a192a9
-        version: https://pkg.pr.new/@module-federation/vite@2a192a9(typescript@5.9.3)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+        specifier: 'catalog:'
+        version: 1.20.7(typescript@5.9.3)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
       '@types/react':
         specifier: 18.3.28
         version: 18.3.28
@@ -423,9 +429,8 @@ packages:
   '@module-federation/third-party-dts-extractor@2.8.2':
     resolution: {integrity: sha512-Xf3iZ4iDi972XMOMbmUm/c5Vwwb6cTsU+Jpoz96lUom6Yps9FQX48elIdhgcQsL7/K64PqdOONsrlZVo8zphKA==}
 
-  '@module-federation/vite@https://pkg.pr.new/@module-federation/vite@2a192a9':
-    resolution: {integrity: sha512-2sXFHrtQxJYlz4SmhGdrZZRghud0oUm+2zbHsLBCkVvXyahTytx/Kxd+aCpo04oiP7AXtuFV0SZmFeJIw8T1EA==, tarball: https://pkg.pr.new/@module-federation/vite@2a192a9}
-    version: 1.20.6
+  '@module-federation/vite@1.20.7':
+    resolution: {integrity: sha512-Mto7P+4k+vXZYuQ6AjDMhVjp5uo/u0G+gLsJLVw6vkibvG2kcwvTmVLoHUBhQ2tj01onohajAxIs9X7H9G4FSg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2506,7 +2511,7 @@ snapshots:
 
   '@module-federation/third-party-dts-extractor@2.8.2': {}
 
-  '@module-federation/vite@https://pkg.pr.new/@module-federation/vite@2a192a9(typescript@5.9.3)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))':
+  '@module-federation/vite@1.20.7(typescript@5.9.3)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))':
     dependencies:
       '@module-federation/dts-plugin': 2.8.2(typescript@5.9.3)
       '@module-federation/runtime': 2.8.2
@@ -2518,7 +2523,7 @@ snapshots:
       - utf-8-validate
       - vue-tsc
 
-  '@module-federation/vite@https://pkg.pr.new/@module-federation/vite@2a192a9(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))':
+  '@module-federation/vite@1.20.7(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))':
     dependencies:
       '@module-federation/dts-plugin': 2.8.2(typescript@7.0.2)
       '@module-federation/runtime': 2.8.2
