@@ -1,2 +1,6 @@
 packages:
+  - "."
   - "apps/*"
+
+catalog:
+  "@module-federation/vite": 1.20.7
