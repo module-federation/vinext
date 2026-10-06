@@ -1,80 +1,37 @@
-# @module-federation/vinext
+# vinext Module Federation
 
-Thin Module Federation wrapper for vinext, built on
-`@module-federation/vite`.
+Monorepo for [`@module-federation/vinext`](packages/vinext), a thin Module
+Federation wrapper for vinext built on `@module-federation/vite`.
 
-## Install
+See the [package README](packages/vinext/README.md) for installation and
+configuration.
 
-```sh
-pnpm add @module-federation/vinext
-```
+## Repository layout
 
-## Configure
+| Path                                 | Description                                      |
+| ------------------------------------ | ------------------------------------------------ |
+| [`packages/vinext`](packages/vinext) | `@module-federation/vinext`, published to npm    |
+| [`apps/host`](apps/host)             | Vinext/React 19 host, port 4173                  |
+| [`apps/remote`](apps/remote)         | React 19 remote shared with the host, port 4174  |
+| [`apps/island`](apps/island)         | Isolated React 18 SSR island, port 4175          |
+| [`e2e`](e2e)                         | Playwright tests against the production previews |
 
-Register federation before `vinext()` in `vite.config.ts`:
-
-```ts
-import { federation } from "@module-federation/vinext";
-import { defineConfig } from "vite";
-import vinext from "vinext";
-
-export default defineConfig({
-  plugins: [
-    federation({
-      name: "host",
-      remotes: {
-        catalog: {
-          type: "module",
-          name: "catalog",
-          entry: "https://catalog.example.com/remoteEntry.js",
-          entryGlobalName: "catalog",
-          shareScope: "default",
-        },
-      },
-    }),
-    vinext(),
-  ],
-});
-```
-
-Remote example:
-
-```ts
-federation({
-  name: "catalog",
-  exposes: {
-    "./ProductCard": "./app/product-card.tsx",
-  },
-});
-```
-
-The wrapper defaults `filename` to `remoteEntry.js`, injects host startup into
-the entry (vinext has no conventional HTML entry), and shares `react` and
-`react-dom` as singletons. Explicit options override every default. All
-`@module-federation/vite` options remain available.
-
-The default export and `withModuleFederation` are aliases of `federation`.
-
-## Example applications
-
-- Vinext host: `apps/host`, port 4173
-- Shared React remote: `apps/remote`, port 4174
-- Isolated React 18 island: `apps/island`, port 4175
-
-```sh
-pnpm dev
-pnpm preview
-```
+Tasks run through [Turborepo](https://turborepo.com), which builds workspace
+dependencies first and caches results in `.turbo/`.
 
 ## Development
 
 ```sh
 pnpm install
-pnpm run check
-pnpm run build:package
-pnpm run build
-pnpm run test:e2e
+pnpm dev          # watch the package and run every app in dev mode
+pnpm build        # build the package and all apps
+pnpm preview      # build, then serve the production apps
+pnpm check        # typecheck, unit tests, and builds
+pnpm test:e2e     # Playwright against `pnpm preview`
 ```
+
+Scope a task to one workspace with a filter, e.g.
+`pnpm turbo run dev --filter=vinext-host` or `pnpm build:package`.
 
 ## Release
 

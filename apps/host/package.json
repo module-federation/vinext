@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite dev --port 4173",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "16.1.6",

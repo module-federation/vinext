@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite dev --port 4174",
     "build": "vite build",
-    "preview": "vite preview --port 4174"
+    "preview": "vite preview --port 4174",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "react": "19.2.8",

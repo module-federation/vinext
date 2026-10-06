@@ -13,13 +13,6 @@ catalogs:
 importers:
 
   .:
-    dependencies:
-      '@module-federation/vite':
-        specifier: 'catalog:'
-        version: 1.20.7(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
-      vinext:
-        specifier: '>=1.0.0-beta.3'
-        version: 1.0.0-beta.4(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
     devDependencies:
       '@changesets/cli':
         specifier: ^2.31.1
@@ -33,9 +26,9 @@ importers:
       oxfmt:
         specifier: 0.63.0
         version: 0.63.0
-      typescript:
-        specifier: ^7.0.2
-        version: 7.0.2
+      turbo:
+        specifier: 2.11.7
+        version: 2.11.7
 
   apps/host:
     dependencies:
@@ -51,7 +44,7 @@ importers:
     devDependencies:
       '@module-federation/vinext':
         specifier: workspace:*
-        version: link:../..
+        version: link:../../packages/vinext
       '@types/node':
         specifier: '20'
         version: 20.19.43
@@ -116,7 +109,7 @@ importers:
     devDependencies:
       '@module-federation/vinext':
         specifier: workspace:*
-        version: link:../..
+        version: link:../../packages/vinext
       '@types/react':
         specifier: '19'
         version: 19.2.17
@@ -135,6 +128,19 @@ importers:
       vite:
         specifier: 8.1.0
         version: 8.1.0(@types/node@20.19.43)(terser@5.49.0)
+
+  packages/vinext:
+    dependencies:
+      '@module-federation/vite':
+        specifier: 'catalog:'
+        version: 1.20.7(typescript@7.0.2)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
+      vinext:
+        specifier: '>=1.0.0-beta.3'
+        version: 1.0.0-beta.5(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
+    devDependencies:
+      typescript:
+        specifier: ^7.0.2
+        version: 7.0.2
 
 packages:
 
@@ -848,6 +854,36 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@turbo/darwin-64@2.11.7':
+    resolution: {integrity: sha512-Z2LFOxwbiJueD1miByXJS/BrW21vv6YaQXZustty5jEX4vQYw6zyh101Sz1QO7WG0mqBzKagZ/DoAeeujI0/Sw==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@turbo/darwin-arm64@2.11.7':
+    resolution: {integrity: sha512-Vhv8ybgIflosNDSSRD9fNXHlCFA60dsGyTqQmc7l28SEX5jOaweCCD4BBYNd8/p0WGkw3e7tZbfA9w6FsujGvw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@turbo/linux-64@2.11.7':
+    resolution: {integrity: sha512-rAqRp3blQKk1+ylMGlZHAW0eJjVNuuGUm4ZrC6RU1Im8tLryvaO4a2zLQ/FQi1TRlmKqKV9YXBki2YeytlLbXA==}
+    cpu: [x64]
+    os: [android, linux]
+
+  '@turbo/linux-arm64@2.11.7':
+    resolution: {integrity: sha512-thVYGov7S+llXAxrl3kBb/efalav0xhrjl5NHCR6AfKx14JkbqaetvbVwyss4FvZ9rt+Pv3xsTb+8SIYix8DTg==}
+    cpu: [arm64]
+    os: [android, linux]
+
+  '@turbo/windows-64@2.11.7':
+    resolution: {integrity: sha512-ZIoKT7J7KutgYl4bGxmmgeUQjG+7E0nY8BF9dxUOiMH2vdTsM4JQ2uSwTYFkTR2Llbg6ghGjSmuZ8LQtkLEYjg==}
+    cpu: [x64]
+    os: [win32]
+
+  '@turbo/windows-arm64@2.11.7':
+    resolution: {integrity: sha512-88Xv2f7SLGVJ68lRRx8o375dKmnZYNdDtvlKcPA0kZpcF93eAQd8l96BKQ0/AMHG0bMJA0Z5QqoqtetxzNsC+g==}
+    cpu: [arm64]
+    os: [win32]
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
@@ -1923,6 +1959,10 @@ packages:
   turbo-stream@3.2.0:
     resolution: {integrity: sha512-EK+bZ9UVrVh7JLslVFOV0GEMsociOqVOvEMTAd4ixMyffN5YNIEdLZWXUx5PJqDbTxSIBWw04HS9gCY4frYQDQ==}
 
+  turbo@2.11.7:
+    resolution: {integrity: sha512-RhXHbqfvY6o3xt/zSHCwSNwLrZlXiqHzewi4eAj9PtZ1T1CqgMJ2yIDb7SKPTG9IikTm925mfzL6hldQVdyNWw==}
+    hasBin: true
+
   typescript@5.9.3:
     resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
     engines: {node: '>=14.17'}
@@ -1955,26 +1995,6 @@ packages:
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
-
-  vinext@1.0.0-beta.4:
-    resolution: {integrity: sha512-2931dmPdXHTCnM4cliTxmJWnXXqoLKgU68qzjeD0lkqvv7cLO3IIvz/azrdBRmAXdhX2e6bmnpuw/9YaIxW7Eg==}
-    engines: {node: '>=22'}
-    hasBin: true
-    peerDependencies:
-      '@mdx-js/rollup': ^3.0.0
-      '@vitejs/plugin-react': ^5.1.4 || ^6.0.0
-      '@vitejs/plugin-rsc': ^0.5.26
-      react: ^19.2.6
-      react-dom: ^19.2.6
-      react-server-dom-webpack: ^19.2.6
-      vite: ^8.0.0
-    peerDependenciesMeta:
-      '@mdx-js/rollup':
-        optional: true
-      '@vitejs/plugin-rsc':
-        optional: true
-      react-server-dom-webpack:
-        optional: true
 
   vinext@1.0.0-beta.5:
     resolution: {integrity: sha512-c0I1UB70/pGwD9y4/iXWrGfz/LnowSbkQpUw+lK9t08tes5WHX7Vl0sZAY4MIzGaVCyvrD4/xZo7HWpMje6SwA==}
@@ -2764,6 +2784,24 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@turbo/darwin-64@2.11.7':
+    optional: true
+
+  '@turbo/darwin-arm64@2.11.7':
+    optional: true
+
+  '@turbo/linux-64@2.11.7':
+    optional: true
+
+  '@turbo/linux-arm64@2.11.7':
+    optional: true
+
+  '@turbo/windows-64@2.11.7':
+    optional: true
+
+  '@turbo/windows-arm64@2.11.7':
+    optional: true
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -3720,6 +3758,15 @@ snapshots:
 
   turbo-stream@3.2.0: {}
 
+  turbo@2.11.7:
+    optionalDependencies:
+      '@turbo/darwin-64': 2.11.7
+      '@turbo/darwin-arm64': 2.11.7
+      '@turbo/linux-64': 2.11.7
+      '@turbo/linux-arm64': 2.11.7
+      '@turbo/windows-64': 2.11.7
+      '@turbo/windows-arm64': 2.11.7
+
   typescript@5.9.3: {}
 
   typescript@7.0.2:
@@ -3764,26 +3811,6 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  vinext@1.0.0-beta.4(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)):
-    dependencies:
-      '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@vercel/og': 0.8.6
-      '@vinext/types': 1.0.0-beta.2
-      '@vitejs/plugin-react': 6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
-      image-size: 2.0.2
-      ipaddr.js: 2.4.0
-      magic-string: 0.30.21
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
-      vite: 8.2.0(@types/node@20.19.43)(terser@5.49.0)
-      vite-plugin-commonjs: 0.10.4
-      web-vitals: 4.2.4
-    optionalDependencies:
-      '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
-      react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
-    transitivePeerDependencies:
-      - next
-
   vinext@1.0.0-beta.5(@vitejs/plugin-react@6.0.0(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0)):
     dependencies:
       '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -3820,6 +3847,26 @@ snapshots:
       web-vitals: 4.2.4
     optionalDependencies:
       '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.1.0(@types/node@20.19.43)(terser@5.49.0))
+      react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
+    transitivePeerDependencies:
+      - next
+
+  vinext@1.0.0-beta.5(@vitejs/plugin-react@6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(@vitejs/plugin-rsc@0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)))(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0)):
+    dependencies:
+      '@unpic/react': 1.0.2(next@16.1.6(@playwright/test@1.62.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@vercel/og': 0.8.6
+      '@vinext/types': 1.0.0-beta.2
+      '@vitejs/plugin-react': 6.0.5(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
+      image-size: 2.0.2
+      ipaddr.js: 2.4.0
+      magic-string: 0.30.21
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+      vite: 8.2.0(@types/node@20.19.43)(terser@5.49.0)
+      vite-plugin-commonjs: 0.10.4
+      web-vitals: 4.2.4
+    optionalDependencies:
+      '@vitejs/plugin-rsc': 0.5.29(react-dom@19.2.8(react@19.2.8))(react-server-dom-webpack@19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2))(react@19.2.8)(vite@8.2.0(@types/node@20.19.43)(terser@5.49.0))
       react-server-dom-webpack: 19.2.8(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
     transitivePeerDependencies:
       - next

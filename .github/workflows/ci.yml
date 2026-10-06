@@ -13,6 +13,11 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Optional Turborepo remote cache; tasks run with the local cache when unset.
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
 jobs:
   check:
     name: Check
@@ -39,4 +44,5 @@ jobs:
         run: pnpm run check
 
       - name: Inspect package contents
+        working-directory: packages/vinext
         run: pnpm pack --dry-run

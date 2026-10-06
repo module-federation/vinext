@@ -28,11 +28,12 @@ request.
 3. Review the version bump and changelog in the generated `Release vX.Y.Z`
    pull request, then merge it.
 4. Create a GitHub release from `main` with the tag `X.Y.Z` (no leading `v`),
-   matching the version in `package.json`, and publish it.
+   matching the version in `packages/vinext/package.json`, and publish it.
 
 Publishing the GitHub release runs the **Release** workflow, which checks that
-the tag matches `package.json`, runs the full checks, and publishes to npm with
-the `latest` tag.
+the tag matches `packages/vinext/package.json`, runs the full checks, packs the
+package with pnpm (resolving `catalog:` versions), and publishes the tarball to
+npm with the `latest` tag.
 
 ## Publish a prerelease
 
@@ -58,3 +59,5 @@ Neither changes `main` or the next stable version.
 - npm Trusted Publishing for `@module-federation/vinext`, pointing at this
   repository, the `release.yml` workflow, and the `Publish` environment. No npm
   token is needed.
+- Optional: secret `TURBO_TOKEN` and variable `TURBO_TEAM` enable the Turborepo
+  remote cache in the **CI** and **E2E Tests** workflows.

@@ -28,6 +28,7 @@ concurrency:
 
 env:
   PACKAGE_NAME: "@module-federation/vinext"
+  PACKAGE_DIR: packages/vinext
 
 jobs:
   publish:
@@ -91,6 +92,7 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && github.event.inputs.version == 'next'
         run: |
           pnpm exec changeset version --snapshot next
+          cd "$PACKAGE_DIR"
           SNAPSHOT_VERSION="$(node -p "require('./package.json').version")"
           BASE_VERSION="${SNAPSHOT_VERSION%%-*}"
           NEXT_VERSION="${BASE_VERSION}-next.${GITHUB_RUN_ID}"
@@ -99,6 +101,7 @@ jobs:
 
       - name: Verify tag matches package version
         if: github.event_name == 'release'
+        working-directory: ${{ env.PACKAGE_DIR }}
         env:
           RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
@@ -120,6 +123,7 @@ jobs:
 
       - name: Set deterministic prerelease version
         if: github.event_name == 'release' && github.event.release.prerelease
+        working-directory: ${{ env.PACKAGE_DIR }}
         run: |
           CURRENT_VERSION="$(node -p "require('./package.json').version")"
           BASE_VERSION="${CURRENT_VERSION%%-*}"
@@ -133,8 +137,10 @@ jobs:
       - name: Check formatting
         run: pnpm run fmt.check
 
-      - name: Inspect package contents
-        run: pnpm pack --dry-run
+      - name: Pack package
+        working-directory: ${{ env.PACKAGE_DIR }}
+        # pnpm pack resolves catalog: and workspace: specifiers; npm publish does not.
+        run: pnpm pack --pack-destination "$RUNNER_TEMP/package"
 
       - name: Compute npm dist-tag
         id: dist
@@ -155,6 +161,7 @@ jobs:
           echo "dist_tag=$DIST_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Resolve publish action
+        working-directory: ${{ env.PACKAGE_DIR }}
         id: publish_action
         env:
           DIST_TAG: ${{ steps.dist.outputs.dist_tag }}
@@ -198,7 +205,7 @@ jobs:
         if: steps.publish_action.outputs.action == 'publish'
         env:
           DIST_TAG: ${{ steps.dist.outputs.dist_tag }}
-        run: npm publish --provenance --tag "$DIST_TAG" --access public
+        run: npm publish "$RUNNER_TEMP"/package/*.tgz --provenance --tag "$DIST_TAG" --access public
 
       - name: Skip npm publish
         if: steps.publish_action.outputs.action == 'skip'
@@ -210,6 +217,7 @@ jobs:
 
       - name: Post summary
         if: always()
+        working-directory: ${{ env.PACKAGE_DIR }}
         continue-on-error: true
         env:
           SOURCE_REF: ${{ github.event.release.tag_name || github.event.inputs.branch }}

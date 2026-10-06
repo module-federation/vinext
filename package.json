@@ -1,67 +1,30 @@
 {
-  "name": "@module-federation/vinext",
-  "version": "0.0.0",
-  "description": "Module Federation integration for vinext",
-  "homepage": "https://github.com/module-federation/vinext#readme",
-  "bugs": {
-    "url": "https://github.com/module-federation/vinext/issues"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/module-federation/vinext.git"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
+  "name": "@module-federation/vinext-monorepo",
+  "private": true,
   "type": "module",
-  "sideEffects": false,
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "scripts": {
     "prepare": "husky install",
+    "build": "turbo run build",
+    "build:package": "turbo run build --filter=@module-federation/vinext",
+    "check": "turbo run typecheck test build",
+    "dev": "turbo run dev",
+    "dev:host": "turbo run dev --filter=vinext-host",
+    "dev:island": "turbo run dev --filter=vinext-island",
+    "dev:remote": "turbo run dev --filter=vinext-remote",
+    "preview": "turbo run preview",
+    "test": "turbo run test",
+    "test:e2e": "playwright test --config=playwright.config.mjs",
+    "typecheck": "turbo run typecheck",
     "fmt": "oxfmt *",
     "fmt.check": "oxfmt --check *",
-    "build": "pnpm run build:apps",
-    "build:package": "tsc -p tsconfig.json",
-    "build:apps": "pnpm run build:package && pnpm --filter 'vinext-*' build",
-    "changeset": "changeset",
-    "check": "pnpm run typecheck && pnpm test && pnpm run build:apps",
-    "dev": "pnpm run build:package && pnpm --filter 'vinext-*' --parallel dev",
-    "dev:host": "pnpm run build:package && pnpm --filter vinext-host dev",
-    "dev:island": "pnpm --filter vinext-island dev",
-    "dev:remote": "pnpm --filter vinext-remote dev",
-    "preview": "pnpm run build:apps && pnpm --filter 'vinext-*' --parallel preview",
-    "test": "pnpm run build:package && node --test",
-    "test:e2e": "playwright test --config=playwright.config.mjs",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "prepack": "pnpm run build:package"
-  },
-  "dependencies": {
-    "@module-federation/vite": "catalog:"
+    "changeset": "changeset"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "@playwright/test": "1.62.0",
     "husky": "9.1.7",
     "oxfmt": "0.63.0",
-    "typescript": "^7.0.2"
-  },
-  "peerDependencies": {
-    "vinext": ">=1.0.0-beta.3"
+    "turbo": "2.11.7"
   },
   "engines": {
     "node": ">=22.22.2"
