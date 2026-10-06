@@ -17,5 +17,7 @@ export default defineConfig({
     url: "http://localhost:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    // turbo runs each app in its own process group; SIGTERM lets it stop them.
+    gracefulShutdown: { signal: "SIGTERM", timeout: 10_000 },
   },
 });

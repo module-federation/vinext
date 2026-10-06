@@ -15,6 +15,11 @@ concurrency:
 permissions:
   contents: read
 
+env:
+  # Optional Turborepo remote cache; tasks run with the local cache when unset.
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
 jobs:
   playwright:
     name: Playwright Tests

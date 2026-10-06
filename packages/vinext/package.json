@@ -1,0 +1,54 @@
+{
+  "name": "@module-federation/vinext",
+  "version": "0.0.0",
+  "description": "Module Federation integration for vinext",
+  "homepage": "https://github.com/module-federation/vinext/tree/main/packages/vinext#readme",
+  "bugs": {
+    "url": "https://github.com/module-federation/vinext/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/module-federation/vinext.git",
+    "directory": "packages/vinext"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch --preserveWatchOutput",
+    "test": "node --test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "pnpm run build"
+  },
+  "dependencies": {
+    "@module-federation/vite": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "vinext": ">=1.0.0-beta.3"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  }
+}

@@ -28,4 +28,4 @@ jobs:
       - name: Build
         run: pnpm build:package
 
-      - run: pnpm dlx pkg-pr-new publish --compact '.'
+      - run: pnpm dlx pkg-pr-new publish --compact './packages/vinext'
