@@ -45,11 +45,9 @@
     "dev:island": "pnpm --filter vinext-island dev",
     "dev:remote": "pnpm --filter vinext-remote dev",
     "preview": "pnpm run build:apps && pnpm --filter 'vinext-*' --parallel preview",
-    "release": "pnpm run build:package && changeset publish",
     "test": "pnpm run build:package && node --test",
     "test:e2e": "playwright test --config=playwright.config.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "version": "changeset version && pnpm install --lockfile-only --ignore-scripts",
     "prepack": "pnpm run build:package"
   },
   "dependencies": {
