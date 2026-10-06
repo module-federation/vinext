@@ -1,0 +1,85 @@
+name: Release Pull Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        description: Release Type (next, beta, alpha, latest)
+        required: true
+        default: latest
+        options:
+          - next
+          - beta
+          - alpha
+          - latest
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: release-pull-request
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Create Release Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate release request
+        env:
+          REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
+        run: |
+          if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "Release pull requests must be created from main."
+            echo "Got: $GITHUB_REF"
+            exit 1
+          fi
+
+          if [ -z "$REPO_SCOPED_TOKEN" ]; then
+            echo "REPO_SCOPED_TOKEN is required so release PR events trigger CI."
+            exit 1
+          fi
+
+      - name: Checkout repo
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 10
+          token: ${{ secrets.REPO_SCOPED_TOKEN }}
+
+      - name: Cache tool downloads
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: ${{ runner.os }}-toolcache-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-toolcache-
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: "10.33.2"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24.15.0"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Create release pull request
+        uses: module-federation/actions@842df3a7740093a5ff44de2b9a890106046b8e32 # v2
+        with:
+          version: ${{ github.event.inputs.version || 'latest' }}
+          versionNumber: auto
+          type: pull request
+          tools: changeset
+          coreNpmName: "@module-federation/vinext"
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          REF: ${{ github.ref }}
