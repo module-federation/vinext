@@ -2,7 +2,9 @@ name: Release
 
 on:
   release:
-    types: [published]
+    # `published` covers new releases and prereleases; `released` also fires
+    # when an existing prerelease is changed to a full release.
+    types: [published, released]
   workflow_dispatch:
     inputs:
       version:
@@ -35,6 +37,9 @@ jobs:
     name: Publish to npm
     runs-on: ubuntu-latest
     environment: Publish
+    # A new stable release fires both `published` and `released`; publish
+    # stable releases from `released` only so they run once.
+    if: github.event_name != 'release' || github.event.action == 'released' || github.event.release.prerelease
     steps:
       - name: Validate manual publish target
         if: github.event_name == 'workflow_dispatch'
