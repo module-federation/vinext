@@ -1,5 +1,11 @@
 # @module-federation/vinext
 
+## 0.2.0
+
+### Minor Changes
+
+- 31b8320: Publish the first stable release to npm. `0.1.0` was never published under the `latest` tag and its version number is no longer available on npm, so this release ships those changes as `0.2.0`.
+
 ## 0.1.0
 
 ### Minor Changes
