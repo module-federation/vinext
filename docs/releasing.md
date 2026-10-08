@@ -35,6 +35,9 @@ the tag matches `packages/vinext/package.json`, runs the full checks, packs the
 package with pnpm (resolving `catalog:` versions), and publishes the tarball to
 npm with the `latest` tag.
 
+Changing an existing pre-release to a full release also runs the **Release**
+workflow and publishes `X.Y.Z` with the `latest` tag.
+
 ## Publish a prerelease
 
 Either:
